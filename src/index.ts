@@ -2,7 +2,7 @@ import express, { Application, json, urlencoded } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import connection from "./database/connection";
-import { userRoute } from "./routes/userRoute";
+import { employeeRoute } from "./routes/employeeRoute";
 
 const app: Application = express();
 dotenv.config({ path: "./.env" });
@@ -14,18 +14,18 @@ app.use(json());
 app.use(urlencoded({ extended: false }));
 
 //Routes
-userRoute(app);
+employeeRoute(app);
 
 //Server
 
 const main = async () => {
-	try {
-		await app.listen(app.get("port"));
-		console.info(`Server running on port ${app.get("port")}`);
-		connection();
-	} catch (error) {
-		throw new Error(`Server error ${error}`);
-	}
+  try {
+    await app.listen(app.get("port"));
+    console.info(`Server running on port ${app.get("port")}`);
+    connection();
+  } catch (error) {
+    throw new Error(`Server error ${error}`);
+  }
 };
 
 main();
