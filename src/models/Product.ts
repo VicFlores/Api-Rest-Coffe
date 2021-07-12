@@ -1,5 +1,5 @@
-import { Schema, model } from "mongoose";
-import { Iproduct } from "../interfaces/Iproduct";
+import { Schema, model } from 'mongoose';
+import { Iproduct } from '../interfaces/Iproduct';
 
 enum productTypes {
   water,
@@ -16,8 +16,8 @@ const productSchema = new Schema({
   productName: { type: String, required: true },
   productType: { type: String, enum: productTypes, required: true },
   price: { type: Number, required: true },
-  oz: { type: Number, required: true },
+  oz: { type: Number },
   amount: { type: Number, required: true },
 });
 
-export default model<Iproduct>("Product", productSchema);
+export default model<Iproduct>('Product', productSchema);
