@@ -16,7 +16,7 @@ const productSchema = new Schema({
   productName: { type: String, required: true },
   productType: { type: String, enum: productTypes, required: true },
   price: { type: Number, required: true },
-  oz: { type: Number },
+  weight: { type: String },
   amount: { type: Number, required: true },
 });
 
